@@ -1,0 +1,11 @@
+import { IStudent } from './student.interface';
+import { Student } from './student.model';
+
+const createStudentInDb = async (student: IStudent) => {
+  const result = await Student.create(student);
+  return result;
+};
+
+export const studentService = {
+  createStudentInDb,
+};
