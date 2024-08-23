@@ -1,3 +1,5 @@
+import { Types } from 'mongoose';
+
 export type userName = {
   firstName: string;
   middleName: string;
@@ -22,14 +24,17 @@ export type localGuardian = {
 
 export type IStudent = {
   id: string;
+  user: Types.ObjectId;
   name: userName;
   email: string;
+  gender: 'male' | 'female';
   guardian: guardian;
   localGuardian: localGuardian;
   bloodGroup: 'A+' | 'A-' | 'B+' | 'B-' | 'O+' | 'O-' | 'AB+' | 'AB-';
   contactNo: string;
   presentAddress: string;
   permanentAddress: string;
+  admissionSemester: Types.ObjectId;
   profileImg?: string;
-  isActive: 'active' | 'blocked';
+  isDeleted: boolean;
 };
